@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1FCA48CC1B0EC9EA00C3D19C /* IOBKeychainConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCA48BE1B0EC9EA00C3D19C /* IOBKeychainConfiguration.m */; };
+		1FCA48CD1B0EC9EA00C3D19C /* IOBAbstractKeychainStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCA48C11B0EC9EA00C3D19C /* IOBAbstractKeychainStatement.m */; };
+		1FCA48CE1B0EC9EA00C3D19C /* IOBDeleteKeychainItemStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCA48C31B0EC9EA00C3D19C /* IOBDeleteKeychainItemStatement.m */; };
+		1FCA48CF1B0EC9EA00C3D19C /* IOBExistsKeychainItemStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCA48C51B0EC9EA00C3D19C /* IOBExistsKeychainItemStatement.m */; };
+		1FCA48D01B0EC9EA00C3D19C /* IOBFetchKeychainItemStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCA48C71B0EC9EA00C3D19C /* IOBFetchKeychainItemStatement.m */; };
+		1FCA48D11B0EC9EA00C3D19C /* IOBInsertKeychainItemStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCA48C91B0EC9EA00C3D19C /* IOBInsertKeychainItemStatement.m */; };
+		1FCA48D21B0EC9EA00C3D19C /* IOBUpdateKeychainItemStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCA48CB1B0EC9EA00C3D19C /* IOBUpdateKeychainItemStatement.m */; };
+		1FCA48D41B0ECA6000C3D19C /* IOBSimpleKeychainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCA48D31B0ECA6000C3D19C /* IOBSimpleKeychainTests.m */; };
 		1FEBDD511B0EC943006F61F8 /* IOBSimpleKeychain.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1FEBDD501B0EC943006F61F8 /* IOBSimpleKeychain.h */; };
 		1FEBDD531B0EC943006F61F8 /* IOBSimpleKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEBDD521B0EC943006F61F8 /* IOBSimpleKeychain.m */; };
 		1FEBDD591B0EC943006F61F8 /* libIOBSimpleKeychain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FEBDD4D1B0EC943006F61F8 /* libIOBSimpleKeychain.a */; };
@@ -36,6 +44,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1FCA48BD1B0EC9EA00C3D19C /* IOBKeychainConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOBKeychainConfiguration.h; sourceTree = "<group>"; };
+		1FCA48BE1B0EC9EA00C3D19C /* IOBKeychainConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOBKeychainConfiguration.m; sourceTree = "<group>"; };
+		1FCA48C01B0EC9EA00C3D19C /* IOBAbstractKeychainStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOBAbstractKeychainStatement.h; sourceTree = "<group>"; };
+		1FCA48C11B0EC9EA00C3D19C /* IOBAbstractKeychainStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOBAbstractKeychainStatement.m; sourceTree = "<group>"; };
+		1FCA48C21B0EC9EA00C3D19C /* IOBDeleteKeychainItemStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOBDeleteKeychainItemStatement.h; sourceTree = "<group>"; };
+		1FCA48C31B0EC9EA00C3D19C /* IOBDeleteKeychainItemStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOBDeleteKeychainItemStatement.m; sourceTree = "<group>"; };
+		1FCA48C41B0EC9EA00C3D19C /* IOBExistsKeychainItemStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOBExistsKeychainItemStatement.h; sourceTree = "<group>"; };
+		1FCA48C51B0EC9EA00C3D19C /* IOBExistsKeychainItemStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOBExistsKeychainItemStatement.m; sourceTree = "<group>"; };
+		1FCA48C61B0EC9EA00C3D19C /* IOBFetchKeychainItemStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOBFetchKeychainItemStatement.h; sourceTree = "<group>"; };
+		1FCA48C71B0EC9EA00C3D19C /* IOBFetchKeychainItemStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOBFetchKeychainItemStatement.m; sourceTree = "<group>"; };
+		1FCA48C81B0EC9EA00C3D19C /* IOBInsertKeychainItemStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOBInsertKeychainItemStatement.h; sourceTree = "<group>"; };
+		1FCA48C91B0EC9EA00C3D19C /* IOBInsertKeychainItemStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOBInsertKeychainItemStatement.m; sourceTree = "<group>"; };
+		1FCA48CA1B0EC9EA00C3D19C /* IOBUpdateKeychainItemStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOBUpdateKeychainItemStatement.h; sourceTree = "<group>"; };
+		1FCA48CB1B0EC9EA00C3D19C /* IOBUpdateKeychainItemStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOBUpdateKeychainItemStatement.m; sourceTree = "<group>"; };
+		1FCA48D31B0ECA6000C3D19C /* IOBSimpleKeychainTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOBSimpleKeychainTests.m; sourceTree = "<group>"; };
 		1FEBDD4D1B0EC943006F61F8 /* libIOBSimpleKeychain.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIOBSimpleKeychain.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FEBDD501B0EC943006F61F8 /* IOBSimpleKeychain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOBSimpleKeychain.h; sourceTree = "<group>"; };
 		1FEBDD521B0EC943006F61F8 /* IOBSimpleKeychain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOBSimpleKeychain.m; sourceTree = "<group>"; };
@@ -62,6 +85,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1FCA48BF1B0EC9EA00C3D19C /* QueryStatements */ = {
+			isa = PBXGroup;
+			children = (
+				1FCA48C01B0EC9EA00C3D19C /* IOBAbstractKeychainStatement.h */,
+				1FCA48C11B0EC9EA00C3D19C /* IOBAbstractKeychainStatement.m */,
+				1FCA48C21B0EC9EA00C3D19C /* IOBDeleteKeychainItemStatement.h */,
+				1FCA48C31B0EC9EA00C3D19C /* IOBDeleteKeychainItemStatement.m */,
+				1FCA48C41B0EC9EA00C3D19C /* IOBExistsKeychainItemStatement.h */,
+				1FCA48C51B0EC9EA00C3D19C /* IOBExistsKeychainItemStatement.m */,
+				1FCA48C61B0EC9EA00C3D19C /* IOBFetchKeychainItemStatement.h */,
+				1FCA48C71B0EC9EA00C3D19C /* IOBFetchKeychainItemStatement.m */,
+				1FCA48C81B0EC9EA00C3D19C /* IOBInsertKeychainItemStatement.h */,
+				1FCA48C91B0EC9EA00C3D19C /* IOBInsertKeychainItemStatement.m */,
+				1FCA48CA1B0EC9EA00C3D19C /* IOBUpdateKeychainItemStatement.h */,
+				1FCA48CB1B0EC9EA00C3D19C /* IOBUpdateKeychainItemStatement.m */,
+			);
+			path = QueryStatements;
+			sourceTree = "<group>";
+		};
 		1FEBDD441B0EC943006F61F8 = {
 			isa = PBXGroup;
 			children = (
@@ -83,8 +125,11 @@
 		1FEBDD4F1B0EC943006F61F8 /* IOBSimpleKeychain */ = {
 			isa = PBXGroup;
 			children = (
+				1FCA48BD1B0EC9EA00C3D19C /* IOBKeychainConfiguration.h */,
+				1FCA48BE1B0EC9EA00C3D19C /* IOBKeychainConfiguration.m */,
 				1FEBDD501B0EC943006F61F8 /* IOBSimpleKeychain.h */,
 				1FEBDD521B0EC943006F61F8 /* IOBSimpleKeychain.m */,
+				1FCA48BF1B0EC9EA00C3D19C /* QueryStatements */,
 			);
 			path = IOBSimpleKeychain;
 			sourceTree = "<group>";
@@ -93,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				1FEBDD5D1B0EC943006F61F8 /* Supporting Files */,
+				1FCA48D31B0ECA6000C3D19C /* IOBSimpleKeychainTests.m */,
 			);
 			path = IOBSimpleKeychainTests;
 			sourceTree = "<group>";
@@ -193,7 +239,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FCA48D21B0EC9EA00C3D19C /* IOBUpdateKeychainItemStatement.m in Sources */,
+				1FCA48D01B0EC9EA00C3D19C /* IOBFetchKeychainItemStatement.m in Sources */,
+				1FCA48CE1B0EC9EA00C3D19C /* IOBDeleteKeychainItemStatement.m in Sources */,
 				1FEBDD531B0EC943006F61F8 /* IOBSimpleKeychain.m in Sources */,
+				1FCA48CD1B0EC9EA00C3D19C /* IOBAbstractKeychainStatement.m in Sources */,
+				1FCA48CC1B0EC9EA00C3D19C /* IOBKeychainConfiguration.m in Sources */,
+				1FCA48D11B0EC9EA00C3D19C /* IOBInsertKeychainItemStatement.m in Sources */,
+				1FCA48CF1B0EC9EA00C3D19C /* IOBExistsKeychainItemStatement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FCA48D41B0ECA6000C3D19C /* IOBSimpleKeychainTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
