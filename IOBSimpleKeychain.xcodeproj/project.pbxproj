@@ -1,0 +1,379 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1FEBDD511B0EC943006F61F8 /* IOBSimpleKeychain.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1FEBDD501B0EC943006F61F8 /* IOBSimpleKeychain.h */; };
+		1FEBDD531B0EC943006F61F8 /* IOBSimpleKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEBDD521B0EC943006F61F8 /* IOBSimpleKeychain.m */; };
+		1FEBDD591B0EC943006F61F8 /* libIOBSimpleKeychain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FEBDD4D1B0EC943006F61F8 /* libIOBSimpleKeychain.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1FEBDD5A1B0EC943006F61F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FEBDD451B0EC943006F61F8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1FEBDD4C1B0EC943006F61F8;
+			remoteInfo = IOBSimpleKeychain;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1FEBDD4B1B0EC943006F61F8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				1FEBDD511B0EC943006F61F8 /* IOBSimpleKeychain.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1FEBDD4D1B0EC943006F61F8 /* libIOBSimpleKeychain.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIOBSimpleKeychain.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FEBDD501B0EC943006F61F8 /* IOBSimpleKeychain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOBSimpleKeychain.h; sourceTree = "<group>"; };
+		1FEBDD521B0EC943006F61F8 /* IOBSimpleKeychain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOBSimpleKeychain.m; sourceTree = "<group>"; };
+		1FEBDD581B0EC943006F61F8 /* IOBSimpleKeychainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOBSimpleKeychainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FEBDD5E1B0EC943006F61F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1FEBDD4A1B0EC943006F61F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FEBDD551B0EC943006F61F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FEBDD591B0EC943006F61F8 /* libIOBSimpleKeychain.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1FEBDD441B0EC943006F61F8 = {
+			isa = PBXGroup;
+			children = (
+				1FEBDD4F1B0EC943006F61F8 /* IOBSimpleKeychain */,
+				1FEBDD5C1B0EC943006F61F8 /* IOBSimpleKeychainTests */,
+				1FEBDD4E1B0EC943006F61F8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1FEBDD4E1B0EC943006F61F8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1FEBDD4D1B0EC943006F61F8 /* libIOBSimpleKeychain.a */,
+				1FEBDD581B0EC943006F61F8 /* IOBSimpleKeychainTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1FEBDD4F1B0EC943006F61F8 /* IOBSimpleKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				1FEBDD501B0EC943006F61F8 /* IOBSimpleKeychain.h */,
+				1FEBDD521B0EC943006F61F8 /* IOBSimpleKeychain.m */,
+			);
+			path = IOBSimpleKeychain;
+			sourceTree = "<group>";
+		};
+		1FEBDD5C1B0EC943006F61F8 /* IOBSimpleKeychainTests */ = {
+			isa = PBXGroup;
+			children = (
+				1FEBDD5D1B0EC943006F61F8 /* Supporting Files */,
+			);
+			path = IOBSimpleKeychainTests;
+			sourceTree = "<group>";
+		};
+		1FEBDD5D1B0EC943006F61F8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1FEBDD5E1B0EC943006F61F8 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1FEBDD4C1B0EC943006F61F8 /* IOBSimpleKeychain */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FEBDD611B0EC943006F61F8 /* Build configuration list for PBXNativeTarget "IOBSimpleKeychain" */;
+			buildPhases = (
+				1FEBDD491B0EC943006F61F8 /* Sources */,
+				1FEBDD4A1B0EC943006F61F8 /* Frameworks */,
+				1FEBDD4B1B0EC943006F61F8 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IOBSimpleKeychain;
+			productName = IOBSimpleKeychain;
+			productReference = 1FEBDD4D1B0EC943006F61F8 /* libIOBSimpleKeychain.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		1FEBDD571B0EC943006F61F8 /* IOBSimpleKeychainTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FEBDD641B0EC943006F61F8 /* Build configuration list for PBXNativeTarget "IOBSimpleKeychainTests" */;
+			buildPhases = (
+				1FEBDD541B0EC943006F61F8 /* Sources */,
+				1FEBDD551B0EC943006F61F8 /* Frameworks */,
+				1FEBDD561B0EC943006F61F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1FEBDD5B1B0EC943006F61F8 /* PBXTargetDependency */,
+			);
+			name = IOBSimpleKeychainTests;
+			productName = IOBSimpleKeychainTests;
+			productReference = 1FEBDD581B0EC943006F61F8 /* IOBSimpleKeychainTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1FEBDD451B0EC943006F61F8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = Indexoutofbounds;
+				TargetAttributes = {
+					1FEBDD4C1B0EC943006F61F8 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					1FEBDD571B0EC943006F61F8 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+				};
+			};
+			buildConfigurationList = 1FEBDD481B0EC943006F61F8 /* Build configuration list for PBXProject "IOBSimpleKeychain" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1FEBDD441B0EC943006F61F8;
+			productRefGroup = 1FEBDD4E1B0EC943006F61F8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1FEBDD4C1B0EC943006F61F8 /* IOBSimpleKeychain */,
+				1FEBDD571B0EC943006F61F8 /* IOBSimpleKeychainTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1FEBDD561B0EC943006F61F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1FEBDD491B0EC943006F61F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FEBDD531B0EC943006F61F8 /* IOBSimpleKeychain.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FEBDD541B0EC943006F61F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1FEBDD5B1B0EC943006F61F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1FEBDD4C1B0EC943006F61F8 /* IOBSimpleKeychain */;
+			targetProxy = 1FEBDD5A1B0EC943006F61F8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1FEBDD5F1B0EC943006F61F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1FEBDD601B0EC943006F61F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1FEBDD621B0EC943006F61F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		1FEBDD631B0EC943006F61F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		1FEBDD651B0EC943006F61F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = IOBSimpleKeychainTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1FEBDD661B0EC943006F61F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = IOBSimpleKeychainTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1FEBDD481B0EC943006F61F8 /* Build configuration list for PBXProject "IOBSimpleKeychain" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FEBDD5F1B0EC943006F61F8 /* Debug */,
+				1FEBDD601B0EC943006F61F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1FEBDD611B0EC943006F61F8 /* Build configuration list for PBXNativeTarget "IOBSimpleKeychain" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FEBDD621B0EC943006F61F8 /* Debug */,
+				1FEBDD631B0EC943006F61F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1FEBDD641B0EC943006F61F8 /* Build configuration list for PBXNativeTarget "IOBSimpleKeychainTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FEBDD651B0EC943006F61F8 /* Debug */,
+				1FEBDD661B0EC943006F61F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1FEBDD451B0EC943006F61F8 /* Project object */;
+}
