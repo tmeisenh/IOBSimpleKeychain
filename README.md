@@ -6,6 +6,8 @@ Disclaimer: This *might* support OSX but it was developed for iOS use.  I have n
 
 There are a lot of iOS keychain frameworks out there so why did I write this?  The existing frameworks didn't work like I wanted and I thought I could do better.  I also wanted to learn the Keychain Services APIs.
 
+** This is not ready for prime time just yet.  I need to test this on some devices.  **
+
 Pull requests are welcome.
 
 Thanks to UICKeyChainStore for getting me interested in Keychain Services :^)
