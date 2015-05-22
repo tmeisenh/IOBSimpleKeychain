@@ -17,7 +17,7 @@
     return self;
 }
 
-- (void)buildError:(NSError **)error
+- (BOOL)buildError:(NSError **)error
       errorMessage:(NSString *)errorMessage {
     
     if (error) {
@@ -25,6 +25,7 @@
                                      code:0
                                  userInfo:@{NSLocalizedDescriptionKey : errorMessage}];
     }
+    return error == nil;
 }
 
 - (NSMutableDictionary *)commonAttributesQuery {

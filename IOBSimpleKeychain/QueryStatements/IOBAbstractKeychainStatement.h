@@ -9,7 +9,7 @@
 - (instancetype)init UNAVAILABLE_ATTRIBUTE;
 - (instancetype)initWithKeychainConfiguration:(IOBKeychainConfiguration *)keychainConfiguration;
 
-- (void)buildError:(NSError **)error
+- (BOOL)buildError:(NSError **)error
       errorMessage:(NSString *)errorMessage;
 
 - (NSMutableDictionary *)commonAttributesQuery;
