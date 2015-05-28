@@ -4,6 +4,7 @@
 
 @property (nonatomic, readwrite) NSString *service;
 @property (nonatomic, readwrite) NSString *accessGroup;
+@property (nonatomic, readwrite) CFTypeRef keychainAccessibility;
 
 @end
 
@@ -16,6 +17,7 @@
     if (self) {
         _service = service;
         _accessGroup = accessGroup;
+        _keychainAccessibility = kSecAttrAccessibleWhenUnlockedThisDeviceOnly;
     }
     return self;
 }

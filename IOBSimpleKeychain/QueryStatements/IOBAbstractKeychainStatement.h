@@ -4,7 +4,7 @@
 
 @interface IOBAbstractKeychainStatement : NSObject
 
-@property (nonatomic, readonly) IOBKeychainConfiguration *configuration;
+@property (nonatomic, readonly) IOBKeychainConfiguration *keychainConfiguration;
 
 - (instancetype)init UNAVAILABLE_ATTRIBUTE;
 - (instancetype)initWithKeychainConfiguration:(IOBKeychainConfiguration *)keychainConfiguration;
