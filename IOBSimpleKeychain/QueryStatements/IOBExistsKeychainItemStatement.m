@@ -24,7 +24,7 @@
     query[(__bridge __strong id)kSecAttrAccount] = self.itemKey;
     
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, NULL);
-    if (status != errSecSuccess && status != errSecInteractionNotAllowed) {
+    if (status != errSecSuccess) {
         [self buildError:error errorMessage:@"Unable to find item at key."];
         return NO;
     }
