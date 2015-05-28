@@ -26,7 +26,7 @@
     NSMutableDictionary *attributes = [self commonAttributesQuery];
     attributes[(__bridge __strong id)kSecAttrAccount] = self.itemKey;
     attributes[(__bridge __strong id)kSecValueData] = self.itemData;
-    attributes[(__bridge __strong id)kSecAttrAccessible] = (__bridge id)kSecAttrAccessibleWhenUnlocked;
+    attributes[(__bridge __strong id)kSecAttrAccessible] = (__bridge id)kSecAttrAccessibleWhenUnlockedThisDeviceOnly;
     
     OSStatus status = SecItemAdd((__bridge CFDictionaryRef)attributes, NULL);
     
