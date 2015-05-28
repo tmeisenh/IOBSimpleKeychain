@@ -28,7 +28,7 @@
 
     NSMutableDictionary *attributes = [self commonAttributesQuery];
     attributes[(__bridge __strong id)kSecValueData] = self.itemData;
-    attributes[(__bridge __strong id)kSecAttrAccessible] = (__bridge id)kSecAttrAccessibleWhenUnlocked;
+    attributes[(__bridge __strong id)kSecAttrAccessible] = (__bridge id)self.keychainConfiguration.keychainAccessibility;
     
     OSStatus status = SecItemUpdate((__bridge CFDictionaryRef)query, (__bridge CFDictionaryRef)attributes);
     if (status != errSecSuccess) {
