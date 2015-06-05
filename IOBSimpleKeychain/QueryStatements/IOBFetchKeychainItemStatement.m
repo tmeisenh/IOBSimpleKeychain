@@ -5,6 +5,7 @@
 @interface IOBFetchKeychainItemStatement()
 
 @property (nonatomic) NSString *itemKey;
+@property (nonatomic, readwrite) NSDictionary *fetchedAttributes;
 
 @end
 
@@ -27,17 +28,18 @@
     }
     
     NSMutableDictionary *query = [self commonAttributesQuery];
-    query[(__bridge __strong id)kSecMatchLimit] = (__bridge id)kSecMatchLimitOne;
-    query[(__bridge __strong id)kSecReturnData] = (__bridge id)kCFBooleanTrue;
-    query[(__bridge __strong id)kSecAttrAccount] = self.itemKey;
+    query[(__bridge id)kSecMatchLimit] = (__bridge id) kSecMatchLimitOne;
+    query[(__bridge id)kSecReturnData] = (__bridge id) kCFBooleanTrue;
+    query[(__bridge id)kSecReturnAttributes] = (__bridge id) kCFBooleanTrue;
+    query[(__bridge id)kSecAttrAccount] = self.itemKey;
     
     CFTypeRef data = nil;
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &data);
-    
     NSMutableData *ret;
     
     if (status == errSecSuccess) {
-        ret = (__bridge_transfer NSMutableData *)data;
+        self.fetchedAttributes = (__bridge_transfer NSDictionary *)data;
+        ret = [self.fetchedAttributes objectForKey:(__bridge id)kSecValueData];
     } else {
         [self buildError:error
             errorMessage:[NSString stringWithFormat:@"Error fetching item at key %@", self.itemKey]];

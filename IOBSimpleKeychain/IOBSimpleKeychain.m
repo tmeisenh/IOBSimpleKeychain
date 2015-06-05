@@ -69,6 +69,16 @@
     return [statement executeStatementWithError:nil];
 }
 
+- (NSString *)bundleSeedId {
+    NSString *bundleSeedKey = @"IOBBundleSeedId";
+    if ([self itemExistsInKeychainWithKey:bundleSeedKey]) {
+        
+    } else {
+        
+    }
+    return nil;
+}
+
 #pragma mark - Private API
 
 

@@ -28,4 +28,6 @@
 
 - (BOOL)removeItemForKey:(NSString *)key;
 
+- (NSString *)bundleSeedId;
+
 @end
