@@ -16,6 +16,10 @@ For sharing keychain items between apps there is a little bit more work you will
 
 Disclaimer: This *might* support OSX but it was developed for iOS use.  I have no interest in OSX development so I did not test it.
 
+This project was created because security is a hard problem to solve and C apis don't help much.  I wanted a keychain services framework that encapsulated the SecItem apis into understandable objects and couldn't find that.
+
 Pull requests are welcome.
 
-Roadmap: ability to add pkcs12 identities, add certificates, add keys.
+Roadmap:
+1. ability to add pkcs12 identities, certificates, keys as objects into the keychain system. (You can certainly do this with the NSData api.)
+2. touch id
