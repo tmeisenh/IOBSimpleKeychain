@@ -9,6 +9,11 @@
 @interface IOBSimpleKeychain : NSObject
 
 /*
+ Default init is unavailable.
+ */
+- (instancetype)init UNAVAILABLE_ATTRIBUTE;
+
+/*
  Initializes a IOBSimpleKeychain with a serviceName that represents your organization or your application.
  */
 - (instancetype)initWithServiceName:(NSString *)serviceName;
