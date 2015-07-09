@@ -1,5 +1,7 @@
 #import "IOBAbstractKeychainStatement.h"
 
+#import "IOBErrorHelper.h"
+
 @interface IOBAbstractKeychainStatement()
 
 @property (nonatomic, readwrite) IOBKeychainConfiguration *keychainConfiguration;
@@ -25,12 +27,9 @@
          errorCode:(NSUInteger)errorCode
       errorMessage:(NSString *)errorMessage {
     
-    if (error) {
-        *error = [NSError errorWithDomain:@"com.indexoutofbounds.iobsimplekeychain"
-                                     code:errorCode
-                                 userInfo:@{NSLocalizedDescriptionKey : errorMessage}];
-    }
-    return error == nil;
+    return [IOBErrorHelper buildError:error
+                            errorCode:errorCode
+                         errorMessage:errorMessage];
 }
 
 - (NSMutableDictionary *)commonAttributesQuery {

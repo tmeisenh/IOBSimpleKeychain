@@ -45,23 +45,116 @@
     }
 }
 
-- (void)testWhenPuttingDataThenKeyMustNotBeNil {
-    XCTAssertFalse([self.testObject putString:@"str" atKey:@""]);
-}
-
-- (void)testWhenPuttingDataThenKeyMustHaveSomeValue {
+- (void)testWhenPuttingStringThenKeyMustNotBeNil {
+    XCTAssertFalse([self.testObject putString:@"str" atKey:nil]);
     
-    XCTAssertFalse([self.testObject putData:[@"data" dataUsingEncoding:NSASCIIStringEncoding] atKey:@""]);
+    NSError *error = nil;
+    XCTAssertFalse([self.testObject putString:@"str" atKey:nil error:&error]);
+    
+    XCTAssertNotNil(error);
+    XCTAssertEqualObjects(error.domain, @"com.indexoutofbounds.iobsimplekeychain");
+    XCTAssertEqual(error.code, 0);
+    XCTAssertEqualObjects(error.localizedDescription, @"Invalid arguments");
 }
 
-- (void)testPuttingNilDataDoesNotCrash {
+- (void)testWhenPuttingDataThenKeyMustNotBeNil {
+    NSData *data = [@"data" dataUsingEncoding:NSASCIIStringEncoding];
+    XCTAssertFalse([self.testObject putData:data
+                                      atKey:nil]);
+    
+    
+    NSError *error = nil;
+    XCTAssertFalse([self.testObject putData:data
+                                      atKey:nil
+                                      error:&error]);
+    
+    XCTAssertNotNil(error);
+    XCTAssertEqualObjects(error.domain, @"com.indexoutofbounds.iobsimplekeychain");
+    XCTAssertEqual(error.code, 0);
+    XCTAssertEqualObjects(error.localizedDescription, @"Invalid arguments");
+}
+
+- (void)testWhenPuttingStringThenKeyMustNotBeEmpty {
+    XCTAssertFalse([self.testObject putString:@"str" atKey:@""]);
+    
+    NSError *error = nil;
+    XCTAssertFalse([self.testObject putString:@"str" atKey:@"" error:&error]);
+    
+    XCTAssertNotNil(error);
+    XCTAssertEqualObjects(error.domain, @"com.indexoutofbounds.iobsimplekeychain");
+    XCTAssertEqual(error.code, 0);
+    XCTAssertEqualObjects(error.localizedDescription, @"Invalid arguments");
+}
+
+- (void)testWhenPuttingDataThenKeyMustNotBeEmpty {
+    NSData *data = [@"data" dataUsingEncoding:NSASCIIStringEncoding];
+    XCTAssertFalse([self.testObject putData:data
+                                      atKey:@""]);
+    
+    
+    NSError *error = nil;
+    XCTAssertFalse([self.testObject putData:data
+                                      atKey:@""
+                                      error:&error]);
+    
+    XCTAssertNotNil(error);
+    XCTAssertEqualObjects(error.domain, @"com.indexoutofbounds.iobsimplekeychain");
+    XCTAssertEqual(error.code, 0);
+    XCTAssertEqualObjects(error.localizedDescription, @"Invalid arguments");
+}
+
+- (void)testPuttingNilDataThenDataMustNotBeNil {
     XCTAssertFalse([self.testObject putData:nil atKey:@"foo"]);
+    
+    NSError *error = nil;
+    XCTAssertFalse([self.testObject putData:nil
+                                      atKey:@"foo"
+                                      error:&error]);
+    
+    XCTAssertNotNil(error);
+    XCTAssertEqualObjects(error.domain, @"com.indexoutofbounds.iobsimplekeychain");
+    XCTAssertEqual(error.code, 0);
+    XCTAssertEqualObjects(error.localizedDescription, @"Invalid arguments");
 }
 
-- (void)testPuttingStringDataDoesNotCrash {
+- (void)testPuttingStringThenStringMustNotBeNil {
     XCTAssertFalse([self.testObject putString:nil atKey:@"foo"]);
+    
+    NSError *error = nil;
+    XCTAssertFalse([self.testObject putString:nil atKey:@"foo" error:&error]);
+    
+    XCTAssertNotNil(error);
+    XCTAssertEqualObjects(error.domain, @"com.indexoutofbounds.iobsimplekeychain");
+    XCTAssertEqual(error.code, 0);
+    XCTAssertEqualObjects(error.localizedDescription, @"Invalid arguments");
 }
 
+- (void)testPuttingNilDataThenDataMustNotBeEmpty {
+    NSData *emptyData = [[NSData alloc] init];
+    XCTAssertFalse([self.testObject putData:emptyData atKey:@"foo"]);
+    
+    NSError *error = nil;
+    XCTAssertFalse([self.testObject putData:emptyData
+                                      atKey:@"foo"
+                                      error:&error]);
+    
+    XCTAssertNotNil(error);
+    XCTAssertEqualObjects(error.domain, @"com.indexoutofbounds.iobsimplekeychain");
+    XCTAssertEqual(error.code, 0);
+    XCTAssertEqualObjects(error.localizedDescription, @"Invalid arguments");
+}
+
+- (void)testPuttingStringThenStringMustNotBeEmpty {
+    XCTAssertFalse([self.testObject putString:@"" atKey:@"foo"]);
+    
+    NSError *error = nil;
+    XCTAssertFalse([self.testObject putString:@"" atKey:@"foo" error:&error]);
+    
+    XCTAssertNotNil(error);
+    XCTAssertEqualObjects(error.domain, @"com.indexoutofbounds.iobsimplekeychain");
+    XCTAssertEqual(error.code, 0);
+    XCTAssertEqualObjects(error.localizedDescription, @"Invalid arguments");
+}
 
 - (void)testWhenPuttingStringIntoKeychainThenItCanBeRetrieved {
     

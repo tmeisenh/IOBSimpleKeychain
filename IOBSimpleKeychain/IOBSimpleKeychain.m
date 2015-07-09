@@ -6,6 +6,8 @@
 #import "IOBUpdateKeychainItemStatement.h"
 #import "IOBDeleteKeychainItemStatement.h"
 
+#import "IOBErrorHelper.h"
+
 @interface IOBSimpleKeychain()
 
 @property (nonatomic) IOBKeychainConfiguration *keychainConfiguration;
@@ -75,6 +77,9 @@
           error:(NSError **)error {
     
     if ([self isValidForSavingKey:key data:data]) {
+        [IOBErrorHelper buildError:error
+                         errorCode:0
+                      errorMessage:@"Invalid arguments"];
         return NO;
     }
     
@@ -100,7 +105,6 @@
 
 - (BOOL)isValidForSavingKey:(NSString *)key data:(NSData *)data {
     return (key.length < 1 || data.length < 1);
-
 }
 
 #pragma mark - Item Exists
