@@ -36,12 +36,11 @@
 - (NSMutableDictionary *)commonAttributesQuery {
     NSMutableDictionary *query = [[NSMutableDictionary alloc] init];
     
-    // We intentionally just want generic password since we're storing plain uncategorized data
+    // We intentionally just want kSecClassGenericPassword since we're storing plain uncategorized data
     query[(__bridge __strong id)kSecClass] = (__bridge id) kSecClassGenericPassword;
     query[(__bridge __strong id)kSecAttrSynchronizable] = (__bridge id)kSecAttrSynchronizableAny;
     query[(__bridge __strong id)kSecAttrAccount] = self.itemKey;
-
-    query[(__bridge __strong id)(kSecAttrService)] = self.keychainConfiguration.service;
+    query[(__bridge __strong id)kSecAttrService] = self.keychainConfiguration.service;
     
     // Simulator does not support access groups.
 #if !TARGET_IPHONE_SIMULATOR
