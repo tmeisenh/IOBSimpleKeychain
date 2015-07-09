@@ -16,6 +16,7 @@
     NSMutableDictionary *query = [self commonAttributesQuery];
     
     OSStatus status = SecItemDelete((__bridge CFDictionaryRef)query);
+    /* For deleting, if the item isn't found return YES ?? */
     if (status != errSecSuccess && status != errSecItemNotFound) {
         [self buildError:error
                errorCode:status
