@@ -4,7 +4,6 @@
 
 @interface IOBFetchKeychainItemStatement()
 
-@property (nonatomic) NSString *itemKey;
 @property (nonatomic, readwrite) NSDictionary *fetchedAttributes;
 
 @end
@@ -14,27 +13,31 @@
 - (instancetype)initWithKeychainConfiguration:(IOBKeychainConfiguration *)configuration
                                       itemKey:(NSString *)itemKey {
     
-    if (self = [super initWithKeychainConfiguration:configuration]) {
-        _itemKey = itemKey;
-    }
-    return self;
+    return[super initWithKeychainConfiguration:configuration
+                                       itemKey:itemKey];
 }
 
 - (NSMutableData *)executeStatementWithError:(NSError **)error {
     
     if (!self.itemKey.length) {
-        [self buildError:error errorMessage:@"Key must not be nil."];
+        [self buildError:error
+               errorCode:errSecBadReq
+            errorMessage:@"Key must not be nil."];
+        
         return nil;
     }
     
     NSMutableDictionary *query = [self commonAttributesQuery];
+    
     query[(__bridge id)kSecMatchLimit] = (__bridge id) kSecMatchLimitOne;
     query[(__bridge id)kSecReturnData] = (__bridge id) kCFBooleanTrue;
     query[(__bridge id)kSecReturnAttributes] = (__bridge id) kCFBooleanTrue;
     query[(__bridge id)kSecAttrAccount] = self.itemKey;
     
     CFTypeRef data = nil;
-    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &data);
+    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query,
+                                          &data);
+
     NSMutableData *ret;
     
     if (status == errSecSuccess) {
@@ -42,6 +45,7 @@
         ret = [self.fetchedAttributes objectForKey:(__bridge id)kSecValueData];
     } else {
         [self buildError:error
+               errorCode:status
             errorMessage:[NSString stringWithFormat:@"Error fetching item at key %@", self.itemKey]];
     }
     return ret;

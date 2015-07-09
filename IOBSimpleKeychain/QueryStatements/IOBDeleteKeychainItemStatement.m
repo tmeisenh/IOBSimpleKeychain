@@ -2,31 +2,24 @@
 
 #import "IOBKeychainConfiguration.h"
 
-@interface IOBDeleteKeychainItemStatement()
-
-@property (nonatomic) NSString *itemKey;
-
-@end
-
 @implementation IOBDeleteKeychainItemStatement
 
 - (instancetype)initWithKeychainConfiguration:(IOBKeychainConfiguration *)configuration
                                       itemKey:(NSString *)itemKey {
     
-    if (self = [super initWithKeychainConfiguration:configuration]) {
-        _itemKey = itemKey;
-    }
-    return self;
+    return[super initWithKeychainConfiguration:configuration
+                                       itemKey:itemKey];
 }
 
 - (BOOL)executeStatementWithError:(NSError **)error {
     
     NSMutableDictionary *query = [self commonAttributesQuery];
-    query[(__bridge __strong id)kSecAttrAccount] = self.itemKey;
     
     OSStatus status = SecItemDelete((__bridge CFDictionaryRef)query);
+    /* For deleting, if the item isn't found return YES ?? */
     if (status != errSecSuccess && status != errSecItemNotFound) {
         [self buildError:error
+               errorCode:status
             errorMessage:@"Error removing item."];
         return NO;
     }

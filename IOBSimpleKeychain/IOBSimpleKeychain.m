@@ -6,6 +6,8 @@
 #import "IOBUpdateKeychainItemStatement.h"
 #import "IOBDeleteKeychainItemStatement.h"
 
+#import "IOBErrorHelper.h"
+
 @interface IOBSimpleKeychain()
 
 @property (nonatomic) IOBKeychainConfiguration *keychainConfiguration;
@@ -45,19 +47,49 @@
 
 #pragma mark - Put items
 
-- (BOOL)putData:(NSData *)data atKey:(NSString *)key {
-    NSAssert(key.length > 0, @"Key must not be nil.");
+- (BOOL)putData:(NSData *)data
+          atKey:(NSString *)key {
+    
+    return [self putData:data
+                   atKey:key
+                   error:nil];
+}
+
+- (BOOL)putString:(NSString *)string
+            atKey:(NSString *)key {
+    
+    return [self putString:string
+                     atKey:key
+                     error:nil];
+}
+
+- (BOOL)putString:(NSString *)string
+            atKey:(NSString *)key
+            error:(NSError **)error {
+    
+    return [self putData:[string dataUsingEncoding:NSASCIIStringEncoding]
+                   atKey:key
+                   error:error];
+}
+
+- (BOOL)putData:(NSData *)data
+          atKey:(NSString *)key
+          error:(NSError **)error {
+    
+    if ([self isValidForSavingKey:key data:data]) {
+        [IOBErrorHelper buildError:error
+                         errorCode:0
+                      errorMessage:@"Invalid arguments"];
+        return NO;
+    }
+    
     BOOL itemAlreadyExistsInKeychain = [self itemExistsInKeychainWithKey:key];
     
     if (itemAlreadyExistsInKeychain) {
-        return [self updateItemIntoKeychain:data atKey:key];
+        return [self updateItemIntoKeychain:data atKey:key error:error];
     } else {
-        return [self insertItemIntoKeychain:data atKey:key];
+        return [self insertItemIntoKeychain:data atKey:key error:error];
     }
-}
-
-- (BOOL)putString:(NSString *)string atKey:(NSString *)key {
-    return [self putData:[string dataUsingEncoding:NSASCIIStringEncoding] atKey:key];
 }
 
 #pragma mark - Remove item
@@ -81,6 +113,9 @@
 
 #pragma mark - Private API
 
+- (BOOL)isValidForSavingKey:(NSString *)key data:(NSData *)data {
+    return (key.length < 1 || data.length < 1);
+}
 
 #pragma mark - Item Exists
 - (BOOL)itemExistsInKeychainWithKey:(NSString *)key {
@@ -92,7 +127,9 @@
 
 #pragma mark - Insert item
 
-- (BOOL)insertItemIntoKeychain:(NSData *)data atKey:(NSString *)key {
+- (BOOL)insertItemIntoKeychain:(NSData *)data
+                         atKey:(NSString *)key
+                         error:(NSError **)error {
     
     IOBInsertKeychainItemStatement *statement = [[IOBInsertKeychainItemStatement alloc] initWithKeychainConfiguration:self.keychainConfiguration
                                                                                                               itemKey:key
@@ -102,13 +139,15 @@
 
 #pragma mark - Update item
 
-- (BOOL)updateItemIntoKeychain:(NSData *)data atKey:(NSString *)key {
+- (BOOL)updateItemIntoKeychain:(NSData *)data
+                         atKey:(NSString *)key
+                         error:(NSError **)error {
     
     IOBUpdateKeychainItemStatement *statement = [[IOBUpdateKeychainItemStatement alloc] initWithKeychainConfiguration:self.keychainConfiguration
                                                                                                               itemKey:key
                                                                                                              itemData:data];
     
-    return [statement executeStatementWithError:nil];
+    return [statement executeStatementWithError:error];
 }
 
 @end
