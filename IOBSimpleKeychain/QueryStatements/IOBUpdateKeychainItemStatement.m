@@ -33,6 +33,7 @@
     OSStatus status = SecItemUpdate((__bridge CFDictionaryRef)query, (__bridge CFDictionaryRef)attributes);
     if (status != errSecSuccess) {
         [self buildError:error
+               errorCode:status
             errorMessage:[NSString stringWithFormat:@"Unable to update item at key %@", self.itemKey]];
         return NO;
     }

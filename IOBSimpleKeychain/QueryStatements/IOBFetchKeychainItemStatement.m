@@ -22,7 +22,10 @@
 - (NSMutableData *)executeStatementWithError:(NSError **)error {
     
     if (!self.itemKey.length) {
-        [self buildError:error errorMessage:@"Key must not be nil."];
+        [self buildError:error
+               errorCode:errSecBadReq
+            errorMessage:@"Key must not be nil."];
+        
         return nil;
     }
     
@@ -40,6 +43,7 @@
         ret = (__bridge_transfer NSMutableData *)data;
     } else {
         [self buildError:error
+               errorCode:status
             errorMessage:[NSString stringWithFormat:@"Error fetching item at key %@", self.itemKey]];
     }
     return ret;

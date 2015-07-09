@@ -25,7 +25,9 @@
     
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, NULL);
     if (status != errSecSuccess) {
-        [self buildError:error errorMessage:@"Unable to find item at key."];
+        [self buildError:error
+               errorCode:status
+            errorMessage:@"Unable to find item at key."];
         return NO;
     }
     return YES;

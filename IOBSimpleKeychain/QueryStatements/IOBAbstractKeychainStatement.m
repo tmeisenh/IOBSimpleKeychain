@@ -17,12 +17,14 @@
     return self;
 }
 
+
 - (BOOL)buildError:(NSError **)error
+         errorCode:(NSUInteger)errorCode
       errorMessage:(NSString *)errorMessage {
     
     if (error) {
         *error = [NSError errorWithDomain:@"com.indexoutofbounds.iobsimplekeychain"
-                                     code:0
+                                     code:errorCode
                                  userInfo:@{NSLocalizedDescriptionKey : errorMessage}];
     }
     return error == nil;

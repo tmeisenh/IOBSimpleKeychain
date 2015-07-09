@@ -10,6 +10,7 @@
 - (instancetype)initWithKeychainConfiguration:(IOBKeychainConfiguration *)keychainConfiguration;
 
 - (BOOL)buildError:(NSError **)error
+         errorCode:(NSUInteger)errorCode
       errorMessage:(NSString *)errorMessage;
 
 - (NSMutableDictionary *)commonAttributesQuery;

@@ -31,7 +31,8 @@
     OSStatus status = SecItemAdd((__bridge CFDictionaryRef)attributes, NULL);
     
     if (status != errSecSuccess) {
-        [self buildError:errSecSuccess
+        [self buildError:error
+               errorCode:status
             errorMessage:[NSString stringWithFormat:@"Unable to insert item at key %@", self.itemKey]];
         return NO;
     }

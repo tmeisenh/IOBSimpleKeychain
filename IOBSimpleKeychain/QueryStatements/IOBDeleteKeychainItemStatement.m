@@ -27,6 +27,7 @@
     OSStatus status = SecItemDelete((__bridge CFDictionaryRef)query);
     if (status != errSecSuccess && status != errSecItemNotFound) {
         [self buildError:error
+               errorCode:status
             errorMessage:@"Error removing item."];
         return NO;
     }
