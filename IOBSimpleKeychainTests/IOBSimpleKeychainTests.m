@@ -46,29 +46,22 @@
 }
 
 - (void)testWhenPuttingDataThenKeyMustNotBeNil {
-    @try {
-        [self.testObject putString:@"str" atKey:nil];
-        XCTFail(@"Expected exception not thrown.");
-        
-        
-        [self.testObject putData:[@"data" dataUsingEncoding:NSASCIIStringEncoding] atKey:nil];
-        XCTFail(@"Expected exception not thrown.");
-    }
-    @catch (NSException *exception) {
-    }
+    XCTAssertFalse([self.testObject putString:@"str" atKey:@""]);
 }
 
 - (void)testWhenPuttingDataThenKeyMustHaveSomeValue {
-    @try {
-        [self.testObject putString:@"str" atKey:@""];
-        XCTFail(@"Expected exception not thrown.");
-        
-        [self.testObject putData:[@"data" dataUsingEncoding:NSASCIIStringEncoding] atKey:@""];
-        XCTFail(@"Expected exception not thrown.");
-    }
-    @catch (NSException *exception) {
-    }
+    
+    XCTAssertFalse([self.testObject putData:[@"data" dataUsingEncoding:NSASCIIStringEncoding] atKey:@""]);
 }
+
+- (void)testPuttingNilDataDoesNotCrash {
+    XCTAssertFalse([self.testObject putData:nil atKey:@"foo"]);
+}
+
+- (void)testPuttingStringDataDoesNotCrash {
+    XCTAssertFalse([self.testObject putString:nil atKey:@"foo"]);
+}
+
 
 - (void)testWhenPuttingStringIntoKeychainThenItCanBeRetrieved {
     

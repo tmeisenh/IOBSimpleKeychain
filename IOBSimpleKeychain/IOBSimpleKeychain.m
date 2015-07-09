@@ -45,8 +45,39 @@
 
 #pragma mark - Put items
 
-- (BOOL)putData:(NSData *)data atKey:(NSString *)key {
-    NSAssert(key.length > 0, @"Key must not be nil.");
+- (BOOL)putData:(NSData *)data
+          atKey:(NSString *)key {
+    
+    return [self putData:data
+                   atKey:key
+                   error:nil];
+}
+
+- (BOOL)putString:(NSString *)string
+            atKey:(NSString *)key {
+    
+    return [self putString:string
+                     atKey:key
+                     error:nil];
+}
+
+- (BOOL)putString:(NSString *)string
+            atKey:(NSString *)key
+            error:(NSError **)error {
+    
+    return [self putData:[string dataUsingEncoding:NSASCIIStringEncoding]
+                   atKey:key
+                   error:error];
+}
+
+- (BOOL)putData:(NSData *)data
+          atKey:(NSString *)key
+          error:(NSError **)error {
+    
+    if ([self isValidForSavingKey:key data:data]) {
+        return NO;
+    }
+    
     BOOL itemAlreadyExistsInKeychain = [self itemExistsInKeychainWithKey:key];
     
     if (itemAlreadyExistsInKeychain) {
@@ -54,10 +85,6 @@
     } else {
         return [self insertItemIntoKeychain:data atKey:key];
     }
-}
-
-- (BOOL)putString:(NSString *)string atKey:(NSString *)key {
-    return [self putData:[string dataUsingEncoding:NSASCIIStringEncoding] atKey:key];
 }
 
 #pragma mark - Remove item
@@ -71,6 +98,10 @@
 
 #pragma mark - Private API
 
+- (BOOL)isValidForSavingKey:(NSString *)key data:(NSData *)data {
+    return (key.length < 1 || data.length < 1);
+
+}
 
 #pragma mark - Item Exists
 - (BOOL)itemExistsInKeychainWithKey:(NSString *)key {

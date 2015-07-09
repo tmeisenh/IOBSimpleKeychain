@@ -26,9 +26,9 @@
           sharedKeychainAccessGroup:(NSString *)sharedKeychainAccessGroup;
 
 - (NSMutableString *)stringForKey:(NSString *)key;
-- (BOOL)putString:(NSString *)string atKey:(NSString *)key;
-
 - (NSMutableData *)dataForKey:(NSString *)key;
+
+- (BOOL)putString:(NSString *)string atKey:(NSString *)key;
 - (BOOL)putData:(NSData *)data atKey:(NSString *)key;
 
 - (BOOL)removeItemForKey:(NSString *)key;
