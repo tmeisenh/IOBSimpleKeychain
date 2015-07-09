@@ -81,9 +81,9 @@
     BOOL itemAlreadyExistsInKeychain = [self itemExistsInKeychainWithKey:key];
     
     if (itemAlreadyExistsInKeychain) {
-        return [self updateItemIntoKeychain:data atKey:key];
+        return [self updateItemIntoKeychain:data atKey:key error:error];
     } else {
-        return [self insertItemIntoKeychain:data atKey:key];
+        return [self insertItemIntoKeychain:data atKey:key error:error];
     }
 }
 
@@ -113,7 +113,9 @@
 
 #pragma mark - Insert item
 
-- (BOOL)insertItemIntoKeychain:(NSData *)data atKey:(NSString *)key {
+- (BOOL)insertItemIntoKeychain:(NSData *)data
+                         atKey:(NSString *)key
+                         error:(NSError **)error {
     
     IOBInsertKeychainItemStatement *statement = [[IOBInsertKeychainItemStatement alloc] initWithKeychainConfiguration:self.keychainConfiguration
                                                                                                               itemKey:key
@@ -123,13 +125,15 @@
 
 #pragma mark - Update item
 
-- (BOOL)updateItemIntoKeychain:(NSData *)data atKey:(NSString *)key {
+- (BOOL)updateItemIntoKeychain:(NSData *)data
+                         atKey:(NSString *)key
+                         error:(NSError **)error {
     
     IOBUpdateKeychainItemStatement *statement = [[IOBUpdateKeychainItemStatement alloc] initWithKeychainConfiguration:self.keychainConfiguration
                                                                                                               itemKey:key
                                                                                                              itemData:data];
     
-    return [statement executeStatementWithError:nil];
+    return [statement executeStatementWithError:error];
 }
 
 @end

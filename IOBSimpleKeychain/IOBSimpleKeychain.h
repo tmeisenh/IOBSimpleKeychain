@@ -31,6 +31,9 @@
 - (BOOL)putString:(NSString *)string atKey:(NSString *)key;
 - (BOOL)putData:(NSData *)data atKey:(NSString *)key;
 
+- (BOOL)putString:(NSString *)string atKey:(NSString *)key error:(NSError **)error;
+- (BOOL)putData:(NSData *)data atKey:(NSString *)key error:(NSError **)error;
+
 - (BOOL)removeItemForKey:(NSString *)key;
 
 @end
