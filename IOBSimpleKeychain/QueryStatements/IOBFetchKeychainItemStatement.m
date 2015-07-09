@@ -2,21 +2,13 @@
 
 #import "IOBKeychainConfiguration.h"
 
-@interface IOBFetchKeychainItemStatement()
-
-@property (nonatomic) NSString *itemKey;
-
-@end
-
 @implementation IOBFetchKeychainItemStatement
 
 - (instancetype)initWithKeychainConfiguration:(IOBKeychainConfiguration *)configuration
                                       itemKey:(NSString *)itemKey {
     
-    if (self = [super initWithKeychainConfiguration:configuration]) {
-        _itemKey = itemKey;
-    }
-    return self;
+    return[super initWithKeychainConfiguration:configuration
+                                       itemKey:itemKey];
 }
 
 - (NSMutableData *)executeStatementWithError:(NSError **)error {
@@ -32,10 +24,10 @@
     NSMutableDictionary *query = [self commonAttributesQuery];
     query[(__bridge __strong id)kSecMatchLimit] = (__bridge id)kSecMatchLimitOne;
     query[(__bridge __strong id)kSecReturnData] = (__bridge id)kCFBooleanTrue;
-    query[(__bridge __strong id)kSecAttrAccount] = self.itemKey;
     
     CFTypeRef data = nil;
-    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &data);
+    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query,
+                                          &data);
     
     NSMutableData *ret;
     

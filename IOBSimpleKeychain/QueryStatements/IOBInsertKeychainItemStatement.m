@@ -3,7 +3,6 @@
 
 @interface IOBInsertKeychainItemStatement()
 
-@property (nonatomic) NSString *itemKey;
 @property (nonatomic) NSData *itemData;
 
 @end
@@ -14,8 +13,8 @@
                                       itemKey:(NSString *)itemKey
                                      itemData:(NSData *)itemData {
     
-    if (self = [super initWithKeychainConfiguration:configuration]) {
-        _itemKey = itemKey;
+    if (self = [super initWithKeychainConfiguration:configuration
+                                            itemKey:itemKey]) {
         _itemData = itemData;
     }
     return self;
@@ -24,11 +23,11 @@
 - (BOOL)executeStatementWithError:(NSError **)error {
     
     NSMutableDictionary *attributes = [self commonAttributesQuery];
-    attributes[(__bridge __strong id)kSecAttrAccount] = self.itemKey;
     attributes[(__bridge __strong id)kSecValueData] = self.itemData;
     attributes[(__bridge __strong id)kSecAttrAccessible] = (__bridge id)self.keychainConfiguration.keychainAccessibility;
     
-    OSStatus status = SecItemAdd((__bridge CFDictionaryRef)attributes, NULL);
+    OSStatus status = SecItemAdd((__bridge CFDictionaryRef)attributes,
+                                 NULL);
     
     if (status != errSecSuccess) {
         [self buildError:error

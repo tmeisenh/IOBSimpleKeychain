@@ -1,29 +1,23 @@
 #import "IOBExistsKeychainItemStatement.h"
+
 #import "IOBKeychainConfiguration.h"
-
-@interface IOBExistsKeychainItemStatement()
-
-@property (nonatomic) NSString *itemKey;
-
-@end
 
 @implementation IOBExistsKeychainItemStatement
 
 - (instancetype)initWithKeychainConfiguration:(IOBKeychainConfiguration *)configuration
                                       itemKey:(NSString *)itemKey {
     
-    if (self = [super initWithKeychainConfiguration:configuration]) {
-        _itemKey = itemKey;
-    }
-    return self;
+    return[super initWithKeychainConfiguration:configuration
+                                       itemKey:itemKey];
 }
 
 - (BOOL)executeStatementWithError:(NSError **)error {
     
     NSMutableDictionary *query = [self commonAttributesQuery];
-    query[(__bridge __strong id)kSecAttrAccount] = self.itemKey;
     
-    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, NULL);
+    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query,
+                                          NULL);
+    
     if (status != errSecSuccess) {
         [self buildError:error
                errorCode:status
