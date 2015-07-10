@@ -24,7 +24,7 @@
           sharedKeychainAccessGroup:(NSString *)sharedKeychainAccessGroup {
     
     if (self = [super init]) {
-        NSAssert(serviceName.length > 0 , @"Service name is required");
+        NSAssert(serviceName.length > 0 , @"Service name is required to allow for uniqueness of items in the keychain.");
         _keychainConfiguration = [[IOBKeychainConfiguration alloc] initWithService:serviceName accessGroup:sharedKeychainAccessGroup];
     }
     return self;

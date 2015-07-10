@@ -48,6 +48,10 @@
     }
 #endif
     
+    /*
+        An item of kSecClassGenericPassword needs kSecAttrAccount, kSecAttrService, and kSecAttrAccessGroup
+        for uniqueness.  These are the composite primary keys, in database speak.
+     */
     return query;
 }
 
