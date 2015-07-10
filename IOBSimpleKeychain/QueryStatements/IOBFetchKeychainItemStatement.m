@@ -2,6 +2,12 @@
 
 #import "IOBKeychainConfiguration.h"
 
+@interface IOBFetchKeychainItemStatement()
+
+@property (nonatomic, readwrite) NSMutableData *resultData;
+
+@end
+
 @implementation IOBFetchKeychainItemStatement
 
 - (instancetype)initWithKeychainConfiguration:(IOBKeychainConfiguration *)configuration
@@ -11,14 +17,14 @@
                                        itemKey:itemKey];
 }
 
-- (NSMutableData *)executeStatementWithError:(NSError **)error {
+- (BOOL)executeStatementWithError:(NSError **)error {
     
     if (!self.itemKey.length) {
         [self buildError:error
                errorCode:errSecBadReq
             errorMessage:@"Key must not be nil."];
         
-        return nil;
+        return NO;
     }
     
     NSMutableDictionary *query = [self commonAttributesQuery];
@@ -29,16 +35,15 @@
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query,
                                           &data);
     
-    NSMutableData *ret;
-    
     if (status == errSecSuccess) {
-        ret = (__bridge_transfer NSMutableData *)data;
+        self.resultData = (__bridge_transfer NSMutableData *)data;
     } else {
         [self buildError:error
                errorCode:status
             errorMessage:[NSString stringWithFormat:@"Error fetching item at key %@", self.itemKey]];
+        return NO;
     }
-    return ret;
+    return YES;
 }
 
 @end

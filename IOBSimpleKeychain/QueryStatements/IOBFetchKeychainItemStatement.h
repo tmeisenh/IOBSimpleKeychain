@@ -8,6 +8,8 @@
 - (instancetype)initWithKeychainConfiguration:(IOBKeychainConfiguration *)configuration
                                       itemKey:(NSString *)itemKey;
 
-- (NSMutableData *)executeStatementWithError:(NSError **)error;
+@property (nonatomic, readonly) NSMutableData *resultData;
+
+- (BOOL)executeStatementWithError:(NSError **)error;
 
 @end

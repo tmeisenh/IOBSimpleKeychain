@@ -36,7 +36,7 @@
     
     IOBFetchKeychainItemStatement *statement = [[IOBFetchKeychainItemStatement alloc] initWithKeychainConfiguration:self.keychainConfiguration
                                                                                                             itemKey:key];
-    return [statement executeStatementWithError:nil];
+    return [statement executeStatementWithError:nil] ? statement.resultData : nil;
 }
 
 - (NSMutableString *)stringForKey:(NSString *)key {
