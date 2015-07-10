@@ -33,14 +33,10 @@
 }
 
 - (NSMutableDictionary *)commonAttributesQuery {
-    NSMutableDictionary *query = [[NSMutableDictionary alloc] init];
-    
     // We intentionally just want kSecClassGenericPassword since we're storing plain uncategorized data
-    query[(__bridge __strong id)kSecClass] = (__bridge id) kSecClassGenericPassword;
+    NSMutableDictionary *query = [self requiredAttributesForGenericPassword];
     query[(__bridge __strong id)kSecAttrSynchronizable] = (__bridge id)kSecAttrSynchronizableAny;
-    query[(__bridge __strong id)kSecAttrAccount] = self.itemKey;
-    query[(__bridge __strong id)kSecAttrService] = self.keychainConfiguration.service;
-    
+
     // Simulator does not support access groups.
 #if !TARGET_IPHONE_SIMULATOR
     if (self.keychainConfiguration.accessGroup) {
@@ -48,10 +44,19 @@
     }
 #endif
     
+    return query;
+}
+
+- (NSMutableDictionary *)requiredAttributesForGenericPassword {
+    NSMutableDictionary *query = [[NSMutableDictionary alloc] init];
     /*
-        An item of kSecClassGenericPassword needs kSecAttrAccount, kSecAttrService, and kSecAttrAccessGroup
-        for uniqueness.  These are the composite primary keys, in database speak.
+     * An item of kSecClassGenericPassword needs kSecAttrAccount and kSecAttrService for uniqueness.  These are the composite primary keys, in database speak.
+     * @see http://www.opensource.apple.com/source/libsecurity_cdsa_utilities/libsecurity_cdsa_utilities-55006/lib/Schema.m4
      */
+    query[(__bridge __strong id)kSecClass] = (__bridge id) kSecClassGenericPassword;
+    query[(__bridge __strong id)kSecAttrAccount] = self.itemKey;
+    query[(__bridge __strong id)kSecAttrService] = self.keychainConfiguration.service;
+    
     return query;
 }
 
