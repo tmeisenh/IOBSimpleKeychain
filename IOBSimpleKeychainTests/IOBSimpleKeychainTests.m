@@ -164,12 +164,36 @@
     XCTAssertTrue([self.testObject removeItemForKey:@"bar"]);
 }
 
+- (void)testWhenUpdatingStringIntoKeyChainThenItCanBeUpdated {
+    NSString *str = @"foo";
+    XCTAssertTrue([self.testObject putString:str atKey:@"bar"]);
+    
+    NSString *strUpdated = @"oof";
+    
+    XCTAssertTrue([self.testObject putString:strUpdated atKey:@"bar"]);
+    
+    XCTAssertEqualObjects(strUpdated, [self.testObject stringForKey:@"bar"]);
+    XCTAssertTrue([self.testObject removeItemForKey:@"bar"]);
+}
+
 - (void)testWhenPuttingDataIntoKeychainThenItCanBeRetrieved {
     NSData *data = [@"foo" dataUsingEncoding:NSASCIIStringEncoding];
     
     XCTAssertTrue([self.testObject putData:data atKey:@"bar"]);
     
     XCTAssertEqualObjects(data, [self.testObject dataForKey:@"bar"]);
+    XCTAssertTrue([self.testObject removeItemForKey:@"bar"]);
+}
+
+- (void)testWhenUpdatingDataIntoKeyChainThenItCanBeUpdated {
+    NSData *data = [@"foo" dataUsingEncoding:NSASCIIStringEncoding];
+    XCTAssertTrue([self.testObject putData:data atKey:@"bar"]);
+    
+    NSData *dataUpdated = [@"oof" dataUsingEncoding:NSASCIIStringEncoding];
+    
+    XCTAssertTrue([self.testObject putData:dataUpdated atKey:@"bar"]);
+    
+    XCTAssertEqualObjects(dataUpdated, [self.testObject dataForKey:@"bar"]);
     XCTAssertTrue([self.testObject removeItemForKey:@"bar"]);
 }
 
@@ -190,4 +214,28 @@
     
     XCTAssertNil([self.testObject dataForKey:@"bar"]);
 }
+
+- (void)testManyIterationsOfModifyingTheKeychain {
+    int iterationCount = 100;
+    NSString *key = @"insanity";
+    [self.testObject removeItemForKey:key];
+    for (int i = 0; i < iterationCount; i++) {
+        NSString *value = [NSString stringWithFormat:@"value %i", i];
+        NSError *error = nil;
+        
+        XCTAssertTrue([self.testObject putString:value atKey:key error:&error], @"Failed to insert at iteration %i", i);
+        XCTAssertNil(error);
+        XCTAssertEqualObjects(value, [self.testObject stringForKey:key], @"Failed to get inserted value at iteration %i", i);
+        
+        NSString *updateValue = [value uppercaseString];
+        
+        XCTAssertTrue([self.testObject putString:updateValue atKey:key error:&error], @"Failed to update at iteration %i", i);
+        XCTAssertNil(error);
+        XCTAssertEqualObjects(updateValue, [self.testObject stringForKey:key], @"Failed to get updated value at iteration %i", i);
+        
+        XCTAssertTrue([self.testObject removeItemForKey:key], @"Failed to delete at iteration %i", i);
+                      
+    }
+}
+
 @end
