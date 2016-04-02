@@ -132,12 +132,12 @@
 			isa = PBXGroup;
 			children = (
 				1F6FF79B1B4DFA1300E65DDD /* IOBErrorHelper.h */,
-				1FCA48BD1B0EC9EA00C3D19C /* IOBKeychainConfiguration.h */,
-				1F68681B1CAF3F8F003BE56C /* IOBKeychainSecurityAccessible.h */,
-				1FEBDD501B0EC943006F61F8 /* IOBSimpleKeychain.h */,
 				1F6FF79C1B4DFA1300E65DDD /* IOBErrorHelper.m */,
+				1FCA48BD1B0EC9EA00C3D19C /* IOBKeychainConfiguration.h */,
 				1FCA48BE1B0EC9EA00C3D19C /* IOBKeychainConfiguration.m */,
+				1F68681B1CAF3F8F003BE56C /* IOBKeychainSecurityAccessible.h */,
 				1F68681C1CAF3F8F003BE56C /* IOBKeychainSecurityAccessible.m */,
+				1FEBDD501B0EC943006F61F8 /* IOBSimpleKeychain.h */,
 				1FEBDD521B0EC943006F61F8 /* IOBSimpleKeychain.m */,
 				1FCA48BF1B0EC9EA00C3D19C /* QueryStatements */,
 			);

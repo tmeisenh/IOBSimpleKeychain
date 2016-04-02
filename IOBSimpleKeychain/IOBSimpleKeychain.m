@@ -17,6 +17,7 @@
 @implementation IOBSimpleKeychain
 
 - (instancetype)initWithServiceName:(NSString *)serviceName {
+    //@TODO why is this empty string?
     return [self initWithServiceName:serviceName sharedKeychainAccessGroup:@""];
 }
 

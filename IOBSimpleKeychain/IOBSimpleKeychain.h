@@ -17,12 +17,14 @@
 
 /*
  Initializes a IOBSimpleKeychain with a serviceName that represents your organization or your application.
+ Default securityAccessibility is SecAttrAccessibleWhenUnlockedThisDeviceOnly.
  */
 - (instancetype)initWithServiceName:(NSString *)serviceName;
 
 /*
  Initializes a IOBSimpleKeychain with a serviceName that represents your organization and the sharedKeyChainAccessGroup defined in your project's
  Xcode -> Capabilities -> Keychain Sharing -> group identifier
+ Default securityAccessibility is SecAttrAccessibleWhenUnlockedThisDeviceOnly.
  */
 - (instancetype)initWithServiceName:(NSString *)serviceName
           sharedKeychainAccessGroup:(NSString *)sharedKeychainAccessGroup;
