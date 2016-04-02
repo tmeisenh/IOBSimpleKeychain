@@ -1,5 +1,7 @@
 #import <Foundation/Foundation.h>
 
+#import "IOBKeychainSecurityAccessible.h"
+
 /**
  
  Simple, generic iOS keychain wrapper that encapsulates CRUD operations.
@@ -24,6 +26,10 @@
  */
 - (instancetype)initWithServiceName:(NSString *)serviceName
           sharedKeychainAccessGroup:(NSString *)sharedKeychainAccessGroup;
+
+- (instancetype)initWithServiceName:(NSString *)serviceName
+          sharedKeychainAccessGroup:(NSString *)sharedKeychainAccessGroup
+              securityAccessibility:(SecAttrAccessible)securityAccessibility;
 
 - (NSMutableString *)stringForKey:(NSString *)key;
 - (NSMutableData *)dataForKey:(NSString *)key;

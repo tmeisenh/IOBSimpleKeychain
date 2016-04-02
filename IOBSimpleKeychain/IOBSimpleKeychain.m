@@ -23,9 +23,21 @@
 - (instancetype)initWithServiceName:(NSString *)serviceName
           sharedKeychainAccessGroup:(NSString *)sharedKeychainAccessGroup {
     
+    return [self initWithServiceName:serviceName
+           sharedKeychainAccessGroup:sharedKeychainAccessGroup
+               securityAccessibility:SecAttrAccessibleWhenUnlockedThisDeviceOnly];
+}
+
+- (instancetype)initWithServiceName:(NSString *)serviceName
+          sharedKeychainAccessGroup:(NSString *)sharedKeychainAccessGroup
+              securityAccessibility:(SecAttrAccessible)securityAccessibility {
+    
     if (self = [super init]) {
         NSAssert(serviceName.length > 0 , @"Service name is required to allow for uniqueness of items in the keychain.");
-        _keychainConfiguration = [[IOBKeychainConfiguration alloc] initWithService:serviceName accessGroup:sharedKeychainAccessGroup];
+        
+        _keychainConfiguration = [[IOBKeychainConfiguration alloc] initWithService:serviceName
+                                                                       accessGroup:sharedKeychainAccessGroup
+                                                             securityAccessibility:securityAccessibility];
     }
     return self;
 }

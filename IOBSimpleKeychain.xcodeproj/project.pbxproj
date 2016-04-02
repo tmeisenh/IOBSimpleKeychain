@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F68681D1CAF3F8F003BE56C /* IOBKeychainSecurityAccessible.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F68681C1CAF3F8F003BE56C /* IOBKeychainSecurityAccessible.m */; };
 		1F6FF79D1B4DFA1300E65DDD /* IOBErrorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6FF79C1B4DFA1300E65DDD /* IOBErrorHelper.m */; };
 		1FCA48CC1B0EC9EA00C3D19C /* IOBKeychainConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCA48BE1B0EC9EA00C3D19C /* IOBKeychainConfiguration.m */; };
 		1FCA48CD1B0EC9EA00C3D19C /* IOBAbstractKeychainStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCA48C11B0EC9EA00C3D19C /* IOBAbstractKeychainStatement.m */; };
@@ -45,6 +46,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1F68681B1CAF3F8F003BE56C /* IOBKeychainSecurityAccessible.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOBKeychainSecurityAccessible.h; sourceTree = "<group>"; };
+		1F68681C1CAF3F8F003BE56C /* IOBKeychainSecurityAccessible.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOBKeychainSecurityAccessible.m; sourceTree = "<group>"; };
 		1F6FF79B1B4DFA1300E65DDD /* IOBErrorHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOBErrorHelper.h; sourceTree = "<group>"; };
 		1F6FF79C1B4DFA1300E65DDD /* IOBErrorHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOBErrorHelper.m; sourceTree = "<group>"; };
 		1FCA48BD1B0EC9EA00C3D19C /* IOBKeychainConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOBKeychainConfiguration.h; sourceTree = "<group>"; };
@@ -128,13 +131,15 @@
 		1FEBDD4F1B0EC943006F61F8 /* IOBSimpleKeychain */ = {
 			isa = PBXGroup;
 			children = (
+				1F6FF79B1B4DFA1300E65DDD /* IOBErrorHelper.h */,
 				1FCA48BD1B0EC9EA00C3D19C /* IOBKeychainConfiguration.h */,
-				1FCA48BE1B0EC9EA00C3D19C /* IOBKeychainConfiguration.m */,
+				1F68681B1CAF3F8F003BE56C /* IOBKeychainSecurityAccessible.h */,
 				1FEBDD501B0EC943006F61F8 /* IOBSimpleKeychain.h */,
+				1F6FF79C1B4DFA1300E65DDD /* IOBErrorHelper.m */,
+				1FCA48BE1B0EC9EA00C3D19C /* IOBKeychainConfiguration.m */,
+				1F68681C1CAF3F8F003BE56C /* IOBKeychainSecurityAccessible.m */,
 				1FEBDD521B0EC943006F61F8 /* IOBSimpleKeychain.m */,
 				1FCA48BF1B0EC9EA00C3D19C /* QueryStatements */,
-				1F6FF79B1B4DFA1300E65DDD /* IOBErrorHelper.h */,
-				1F6FF79C1B4DFA1300E65DDD /* IOBErrorHelper.m */,
 			);
 			path = IOBSimpleKeychain;
 			sourceTree = "<group>";
@@ -250,6 +255,7 @@
 				1FEBDD531B0EC943006F61F8 /* IOBSimpleKeychain.m in Sources */,
 				1FCA48CD1B0EC9EA00C3D19C /* IOBAbstractKeychainStatement.m in Sources */,
 				1F6FF79D1B4DFA1300E65DDD /* IOBErrorHelper.m in Sources */,
+				1F68681D1CAF3F8F003BE56C /* IOBKeychainSecurityAccessible.m in Sources */,
 				1FCA48CC1B0EC9EA00C3D19C /* IOBKeychainConfiguration.m in Sources */,
 				1FCA48D11B0EC9EA00C3D19C /* IOBInsertKeychainItemStatement.m in Sources */,
 				1FCA48CF1B0EC9EA00C3D19C /* IOBExistsKeychainItemStatement.m in Sources */,

@@ -12,7 +12,9 @@
 
 - (void)setUp {
     [super setUp];
-    self.testObject = [[IOBSimpleKeychain alloc] initWithServiceName:@"com.indexoutofbounds.simplekeychain" sharedKeychainAccessGroup:@"com.indexoutofbounds.shared"];
+    self.testObject = [[IOBSimpleKeychain alloc] initWithServiceName:@"com.indexoutofbounds.simplekeychain"
+                                           sharedKeychainAccessGroup:@"com.indexoutofbounds.shared"
+                                               securityAccessibility:SecAttrAccessibleWhenPasscodeSetThisDeviceOnly];
 }
 
 - (void)testServiceNameMustNotBeNil {
