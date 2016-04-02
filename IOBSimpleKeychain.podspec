@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "IOBSimpleKeychain"
-  s.version      = "1"
+  s.version      = "1.0.0"
   s.summary      = "IOBSimpleKeychain - the simple and clean way to use the iOS Keychain"
 
   s.description  = <<-DESC
