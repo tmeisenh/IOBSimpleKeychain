@@ -17,4 +17,3 @@ build: clean
 
 test: build
 	@xcodebuild -project "$(PROJECT).xcodeproj" -scheme "$(SCHEME)" -configuration "$(CONFIG)" -destination "${DESTINATION}" test | xcpretty -c -r junit
-
